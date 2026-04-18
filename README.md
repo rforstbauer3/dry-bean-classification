@@ -28,6 +28,15 @@ The workflow involves splitting the dataset into training and validation sets, t
 
 ### Confusion Matrix — Model 1
 <img width="975" height="603" alt="image" src="https://github.com/user-attachments/assets/9a9d7782-8ef0-4082-9621-2cd89ee8eab1" />
-
 ```markdown
 ![Confusion Matrix Model 1](figures/confusion_matrix_1.png)
+
+<img width="975" height="603" alt="image" src="https://github.com/user-attachments/assets/7c729f8f-4752-4650-b3fe-ea597e57386b" />
+
+<img width="975" height="681" alt="image" src="https://github.com/user-attachments/assets/d4447488-e83a-4307-89d0-3c312b1f13a9" />
+
+<img width="975" height="617" alt="image" src="https://github.com/user-attachments/assets/40d88402-ebf9-45c8-82fd-fbb27f79a036" />
+
+
+
+
