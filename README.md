@@ -50,7 +50,7 @@ Overall, the model captures the main structure of the dataset and provides a str
 
 ### Discussion
 
-The random forest model was modified by increasing the number of trees and adjusting parameters such as the minimum leaf size and the number of predictors sampled at each split. These changes were intended to improve model stability, reduce overfitting, and encourage greater diversity among the individual trees.
+The random forest model was modified based on guidance regarding hyperparameter tuning by increasing the number of trees and adjusting parameters such as the minimum leaf size and the number of predictors sampled at each split. These changes were intended to improve model stability, reduce overfitting, and encourage greater diversity among the individual trees.
 
 The tuned model maintains strong overall performance, but the improvement over the baseline model is limited. Some classes show slightly reduced accuracy compared to Model 1. For example, Barbunya decreases from approximately 92.4% to 90.5%, and Cali decreases from about 94.5% to 91.1%. The Sira class shows a modest improvement, increasing from approximately 85.8% to 87.1%, but it remains the most difficult class to classify.
 
