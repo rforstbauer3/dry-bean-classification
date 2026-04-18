@@ -28,7 +28,8 @@ The workflow involves splitting the dataset into training and validation sets, t
 
 ### Confusion Matrix — Model 1
 
-![Confusion Matrix Model 1](figures/confusion_matrix_1.png)
+![Confusion Matrix Model 1](<img width="975" height="603" alt="image" src="https://github.com/user-attachments/assets/90503e90-8d93-41a9-9b54-22e5fe602969" />
+)
 
 ### Discussion
 
@@ -46,7 +47,8 @@ Overall, the model captures the main structure of the dataset and provides a str
 
 ### Confusion Matrix — Model 2
 
-![Confusion Matrix Model 2](figures/confusion_matrix_2.png)
+![Confusion Matrix Model 2](<img width="975" height="603" alt="image" src="https://github.com/user-attachments/assets/92de13a2-f397-4e1e-a4c9-3e90b806b625" />
+)
 
 ### Discussion
 
@@ -64,11 +66,13 @@ Overall, the tuned model does not significantly outperform the baseline model, w
 
 ### Feature Importance — Model 2
 
-![Feature Importance](figures/feature_importance.png)
+![Feature Importance](<img width="975" height="681" alt="image" src="https://github.com/user-attachments/assets/ed54e961-dd82-4ffa-9163-2d3a1bce5a24" />
+)
 
 ### Correlation Heatmap
 
-![Correlation Heatmap](figures/correlation_heatmap.png)
+![Correlation Heatmap](<img width="975" height="617" alt="image" src="https://github.com/user-attachments/assets/bdbfc377-156c-4619-87aa-4bf4a8f3e3f3" />
+)
 
 ### Discussion
 
@@ -81,15 +85,6 @@ Lower importance features include extent and several size-related measurements s
 The correlation heatmap provides important context for interpreting these results. Many of the size-related features—such as area, perimeter, convex area, and equivalent diameter—are highly correlated with one another. Because these features contain overlapping information, the random forest distributes importance across them rather than assigning a high importance to any single one.
 
 Overall, the model relies more heavily on shape characteristics than size alone. The combination of feature importance and correlation analysis provides a clearer understanding of how the model distinguishes between bean types and explains why certain misclassifications persist.
-
----
-
-## Code Structure
-
-- `code_1/` → Baseline model (Model 1)
-- `code_2/` → Tuned model + feature analysis (Model 2)
-
----
 
 ## Summary
 
