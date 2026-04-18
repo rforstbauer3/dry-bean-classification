@@ -27,16 +27,70 @@ The workflow involves splitting the dataset into training and validation sets, t
 ## Deliverable #3 — Model 1 (Baseline)
 
 ### Confusion Matrix — Model 1
-<img width="975" height="603" alt="image" src="https://github.com/user-attachments/assets/9a9d7782-8ef0-4082-9621-2cd89ee8eab1" />
-```markdown
+
 ![Confusion Matrix Model 1](figures/confusion_matrix_1.png)
 
-<img width="975" height="603" alt="image" src="https://github.com/user-attachments/assets/7c729f8f-4752-4650-b3fe-ea597e57386b" />
+### Discussion
 
-<img width="975" height="681" alt="image" src="https://github.com/user-attachments/assets/d4447488-e83a-4307-89d0-3c312b1f13a9" />
+The baseline random forest model performs well overall, with most predictions concentrated along the diagonal of the confusion matrix, indicating high classification accuracy.
 
-<img width="975" height="617" alt="image" src="https://github.com/user-attachments/assets/40d88402-ebf9-45c8-82fd-fbb27f79a036" />
+The Bombay class is perfectly classified, suggesting it is highly distinct in feature space. Other classes such as Dermason, Seker, and Cali also show strong performance with minimal errors.
 
+The weakest performance occurs for the Sira class (~85.8%), which is frequently misclassified as Dermason. This indicates these two classes share similar geometric properties. Smaller amounts of confusion also occur between Barbunya and Cali, as well as between Horoz and other classes.
 
+Overall, the model captures the main structure of the dataset and provides a strong baseline for further iteration.
 
+---
 
+## Deliverable #4 — Model 2 (Tuned Random Forest)
+
+### Confusion Matrix — Model 2
+
+![Confusion Matrix Model 2](figures/confusion_matrix_2.png)
+
+### Discussion
+
+The random forest model was modified by increasing the number of trees and adjusting parameters such as the minimum leaf size and the number of predictors sampled at each split. These changes were intended to improve model stability, reduce overfitting, and encourage greater diversity among the individual trees.
+
+The tuned model maintains strong overall performance, but the improvement over the baseline model is limited. Some classes show slightly reduced accuracy compared to Model 1. For example, Barbunya decreases from approximately 92.4% to 90.5%, and Cali decreases from about 94.5% to 91.1%. The Sira class shows a modest improvement, increasing from approximately 85.8% to 87.1%, but it remains the most difficult class to classify.
+
+The confusion between Sira and Dermason continues to be the dominant source of error, indicating that these classes share similar geometric characteristics that are difficult for the model to separate. This suggests that the limitation is not due to model tuning, but rather inherent overlap in the feature space.
+
+Overall, the tuned model does not significantly outperform the baseline model, which indicates that the original model was already performing near its practical limit. This iteration demonstrates how adjusting hyperparameters can affect model behavior, even when improvements are small or mixed.
+
+---
+
+## Deliverable #5 — Feature Importance and Correlation Analysis
+
+### Feature Importance — Model 2
+
+![Feature Importance](figures/feature_importance.png)
+
+### Correlation Heatmap
+
+![Correlation Heatmap](figures/correlation_heatmap.png)
+
+### Discussion
+
+The feature importance plot shows that shape-based features are the most influential predictors in the model. In particular, roundness and ShapeFactor4 have the highest importance scores, followed by solidity and other shape-related features. These variables describe how closely the beans resemble ideal geometric shapes, which appears to be a key factor in distinguishing between different bean types.
+
+Moderately important features include compactness, ShapeFactor1, ShapeFactor3, and minor axis length. These features capture additional geometric relationships that help refine classification when primary shape distinctions are not sufficient.
+
+Lower importance features include extent and several size-related measurements such as area and perimeter. While these variables still contribute to the model, they are less dominant in determining classification outcomes.
+
+The correlation heatmap provides important context for interpreting these results. Many of the size-related features—such as area, perimeter, convex area, and equivalent diameter—are highly correlated with one another. Because these features contain overlapping information, the random forest distributes importance across them rather than assigning a high importance to any single one.
+
+Overall, the model relies more heavily on shape characteristics than size alone. The combination of feature importance and correlation analysis provides a clearer understanding of how the model distinguishes between bean types and explains why certain misclassifications persist.
+
+---
+
+## Code Structure
+
+- `code_1/` → Baseline model (Model 1)
+- `code_2/` → Tuned model + feature analysis (Model 2)
+
+---
+
+## Summary
+
+This project demonstrates the use of a random forest classifier for multiclass classification of beans using geometric features. The model performs well, with most errors occurring between classes that are geometrically similar. Feature importance and correlation analysis provide additional insight into how the model makes its predictions.
